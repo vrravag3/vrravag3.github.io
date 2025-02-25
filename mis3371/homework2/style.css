@@ -59,6 +59,11 @@ td.output
     margin: auto;
 }
 
+td.output 
+{
+    border: 1px solid black; /* Black border for each cell */
+    padding: 5px;
+}
 
 div
     {
