@@ -106,3 +106,7 @@ function validateDob()
     }
 }
 
+function removeReview() 
+{
+    document.getElementById("showInput").innerHTML = "";
+}
