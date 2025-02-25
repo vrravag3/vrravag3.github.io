@@ -56,6 +56,11 @@ function reviewInput()
     document.getElementById("showInput").innerHTML = formoutput;
 }
 
+function removeReview() 
+{
+    document.getElementById("showInput").innerHTML = "";
+}
+
 function validateFname() 
 {
     let fnameInput = document.getElementById("fname");
@@ -104,9 +109,4 @@ function validateDob()
         document.getElementById("dob-error").innerHTML = "";
         return true;
     }
-}
-
-function removeReview() 
-{
-    document.getElementById("showInput").innerHTML = "";
 }
