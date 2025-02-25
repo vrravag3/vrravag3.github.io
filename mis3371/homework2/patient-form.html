@@ -32,9 +32,39 @@ Purpose: A Clinic Patient form
                             Full Name:
                         </th>
                         <td>
-                            <input type="text" name="First Name:" id="fname" placeholder="First Name" maxlength="30" required>
-                            <input type="text" name="Middle Initial:" id="mname" placeholder="M.I." maxlength="1" style="width: 30px">
-                            <input type="text" name="Last Name:" id="lname" placeholder="Last Name" maxlength="30" style="width: 135px" required>
+                            <input type="text" 
+                                name="First Name:" 
+                                id="fname" 
+                                placeholder="First Name" 
+                                maxlength="30" 
+                                title="Letter, apostrophes, and dashes only"
+                                pattern="[a-zA-Z']{1,30}"
+                                onblur="validateFname()"
+                                required
+                            />
+                            
+                            <input type="text" 
+                                name="Middle Initial:" 
+                                id="mname" 
+                                title="Letters only"
+                                pattern="[a-zA-Z']{0,1}"
+                                onblur="validateMini()"
+                                placeholder="M.I." 
+                                maxlength="1" 
+                                style="width: 30px"
+                            />
+                            
+                            <input type="text" 
+                                name="Last Name:" 
+                                id="lname" 
+                                placeholder="Last Name" 
+                                maxlength="30"
+                                title="Letter, apostrophes, and dashes only"
+                                pattern="[a-zA-Z']{1,30}"
+                                onblur="validateLname()"
+                                style="width: 135px" 
+                                required
+                            />
                         </td>
                     </tr>
                     <tr>
