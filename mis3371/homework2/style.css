@@ -51,7 +51,7 @@ tr.output,
 td.output 
 {
     width: 500px;
-    background-color: Pick a color;
+    background-color: white;
     padding: 10px;
     border: 1px solid black;
     border-spacing: 2px;
