@@ -48,7 +48,7 @@ td
 
 table.output
 {
-    width: 500px;
+    max-width: 500px;
     background-color: #FFFFFF;
     padding: 10px;
     border: 1px solid black;
