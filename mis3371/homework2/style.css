@@ -58,6 +58,14 @@ td.output
     color: #80D0F4;
 }
 
+.output-container 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
 div
     {
         position: bottom;
