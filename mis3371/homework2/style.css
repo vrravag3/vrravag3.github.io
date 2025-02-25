@@ -46,6 +46,18 @@ td
         padding: 5px;
     }
 
+table.output,
+tr.output,
+td.output 
+{
+    width: 500px;
+    background-color: Pick a color;
+    padding: 10px;
+    border-spacing: 2px;
+    border-radius: 20px;
+    color: Pick a color;
+}
+
 div
     {
         position: bottom;
