@@ -68,3 +68,19 @@ function validateFname()
         errorSpan.textContent = "";
     }
 }
+
+function validateLname() 
+{
+    let lnameInput = document.getElementById("lname");
+    let errorSpan = document.getElementById("lname-error");
+
+    let pattern = /^[a-zA-Z' -]*[2-5]?[a-zA-Z' -]*$/;
+    let trimmedValue = lnameInput.value.trim();
+    
+    if (!pattern.test(trimmedValue) || trimmedValue.length < 1 || trimmedValue.length > 30) {
+        errorSpan.textContent = "Letters, apostrophes, numbers 2 to 5, ie, the 3rd, and dashes only";
+    } else {
+        errorSpan.textContent = ""; // Clear error if valid
+    }
+}
+
