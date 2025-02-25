@@ -58,7 +58,7 @@ table.output
 
 tr.output, td.output 
 {
-    border: 1px solid black;
+    max-width: 200px;
 }
 
 div
