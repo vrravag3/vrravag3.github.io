@@ -7,6 +7,12 @@ Version: 1.2
 Purpose: A Clinic Patient form 
 */
 
+const d = new Date();
+let text = d.toLocaleDateString();
+document.getElementById("current-date").innerHTML = text;
+
+
+
 function reviewInput() 
 {
     var formcontent = document.getElementById("psignup");
