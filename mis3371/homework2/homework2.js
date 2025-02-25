@@ -1,10 +1,10 @@
 /* 
-Program name: patient-form.html
+Program name: homework2.js
 Author: Vince Ravago
-Date Created: 2/2/2025
+Date Created: 2/24/2025
 Date Updated: 2/27/2025
-Version: 1.2
-Purpose: A Clinic Patient form 
+Version: 1.0
+Purpose: Javascript for the patientform.html
 */
 
 const d = new Date();
