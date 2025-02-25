@@ -11,7 +11,14 @@ const d = new Date();
 let text = d.toLocaleDateString();
 document.getElementById("current-date").innerHTML = text;
 
+let slider = document.getElementById("range");
+let output = document.getElementById("range-slider");
+output.innerHTML = slider.value;
 
+slider.oninput = function () 
+{
+    output.innerHTML = this.value;
+};
 
 function reviewInput() 
 {
