@@ -76,7 +76,7 @@ function validateLname()
 
     let pattern = /^[a-zA-Z' -]*[2-5]{0,1}[a-zA-Z' -]*$/;
     if (!pattern.test(lnameInput.value.trim()) || lnameInput.value.length < 1 || lnameInput.value.length > 30) {
-        errorSpan.textContent = Only letters, apostrophes, dashes, and numbers 2-5 (e.g., '3rd')";
+        errorSpan.textContent = Letters, apostrophes, dashes, and numbers 2-5 (e.g., '3rd')";
     } else {
         errorSpan.textContent = "";
     }
