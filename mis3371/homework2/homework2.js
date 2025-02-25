@@ -83,7 +83,7 @@ function validateLname()
     let trimmedValue = lnameInput.value.trim();
     
     if (!pattern.test(trimmedValue) || trimmedValue.length < 1 || trimmedValue.length > 30) {
-        errorSpan.textContent = "Letters, apostrophes, numbers 2 to 5, ie, the 3rd, and dashes only";
+        errorSpan.textContent = "Letters, apostrophes, numbers 2 to 5, and dashes only";
     } else {
         errorSpan.textContent = "";
     }
