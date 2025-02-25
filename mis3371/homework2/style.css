@@ -53,6 +53,7 @@ td.output
     width: 500px;
     background-color: Pick a color;
     padding: 10px;
+    border: 1px solid;
     border-spacing: 2px;
     border-radius: 20px;
     color: Pick a color;
