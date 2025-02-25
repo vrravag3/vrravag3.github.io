@@ -54,7 +54,7 @@ td.output
     background-color: #ffffff;
     padding: 5px;
     border-spacing: 2px;
-    border: 1px solid;
+    border: 1px solid black;
     color: #000000;
     margin: auto;
 }
