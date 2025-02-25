@@ -46,22 +46,15 @@ td
         padding: 5px;
     }
 
-table.output,
-tr.output,
+table.output, tr.output, td.output 
 {
     width: 500px;
     background-color: #FFFFFF;
     padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
     border-spacing: 2px;
     border-radius: 20px;
-}
-
-td.output 
-{
-    width: 500px;
-    background-color: #FFFFFF;
-    padding: 10px;
-    border-spacing: 2px;
 }
 
 div
