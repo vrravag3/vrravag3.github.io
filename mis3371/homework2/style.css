@@ -71,7 +71,6 @@ footer
 .error 
 {
     color: black;
-    font-size: Pick a size;
+    font-size: 16px;
     font-family: Courier New, monospace;
-    font-weight: Pick a font weight;
 }
