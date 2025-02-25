@@ -29,7 +29,7 @@ Purpose: A Clinic Patient form
                     <tr>
                         <!--The first middle and last name are next to each other-->
                         <th>
-                            Full Name:
+                            First Name:
                         </th>
                         <td>
                             <input type="text" 
@@ -42,8 +42,14 @@ Purpose: A Clinic Patient form
                                 onblur="validateFname()"
                                 required
                             />
-                            <br><span class="error" id="fname-error"></span>
-                            
+                            <span class="error" id="fname-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Middle Initial:
+                        </th>
+                        <td>
                             <input type="text" 
                                 name="Middle Initial:" 
                                 id="mname" 
@@ -55,7 +61,13 @@ Purpose: A Clinic Patient form
                                 style="width: 30px"
                             />
                             <span class="error" id="mini-error"></span>
-                            
+                         </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Last Name:  
+                        </th>
+                        <td> 
                             <input type="text" 
                                 name="Last Name:" 
                                 id="lname" 
