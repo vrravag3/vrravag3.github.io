@@ -57,11 +57,10 @@ table.output,
     margin: auto;
 }
 
-tr.output,
 td.output 
 {
+    width: 500px;
     border: 1px solid black;
-    padding: 5px;
 }
 
 div
