@@ -67,3 +67,11 @@ footer
         padding: 10px;
         box-shadow: 5px 10px #888888;
     }
+
+.error 
+{
+    color: black;
+    font-size: Pick a size;
+    font-family: Courier New, monospace;
+    font-weight: Pick a font weight;
+}
