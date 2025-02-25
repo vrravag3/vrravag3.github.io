@@ -71,10 +71,8 @@ footer
 .error 
 {
     color: black;
-    font-size: 16px;
+    font-size: 20px;
     font-family: Courier New, monospace;
     line-height: 1;
     letter-spacing: -0.5px; 
-    display: block; 
-    margin-top: 2px; 
 }
