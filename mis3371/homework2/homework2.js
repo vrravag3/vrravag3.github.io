@@ -13,9 +13,6 @@ function reviewInput()
     var formoutput = "<table class='output'><caption>Review Your Information</caption>";
     for (let i = 0; i < formcontent.length; i++) 
     {
-                if (fieldType === "button" || fieldType === "submit" || fieldType === "reset") {
-            continue;
-        }
         if (formcontent.elements[i].value !== "") 
         {
             switch (formcontent.elements[i].type) 
