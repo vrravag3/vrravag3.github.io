@@ -84,3 +84,25 @@ function validateLname()
     }
 }
 
+function validateDob() 
+{
+    dob = document.getElementById("dob");
+    let date = new Date(dob.value);
+    let maxDate = new Date().setFullYear(new Date().getFullYear() - 120);
+
+    if (date > new Date()) {
+        document.getElementById("dob-error").innerHTML = 
+        "Date can't be in the future";
+        dob.value = "";
+        return false;
+    } else if (date < new Date(maxDate)) {
+        document.getElementById("dob-error").innerHTML = 
+        "Date can't be more than 120 years ago";
+        dob.value = "";
+        return false;
+    } else {
+        document.getElementById("dob-error").innerHTML = "";
+        return true;
+    }
+}
+
