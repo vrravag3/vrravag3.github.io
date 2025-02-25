@@ -47,19 +47,24 @@ td
     }
 
 table.output
-{
-    max-width: 500px;
-    background-color: #FFFFFF;
-    padding: 10px;
-    border: 1px solid black;
-    border-spacing: 2px;
-    border-radius: 20px;
-}
+    {
+        max-width: 500px;
+        background-color: #FFFFFF;
+        padding: 10px;
+        border: 1px solid black;
+        border-spacing: 2px;
+        border-radius: 20px;
+        table-layout: fixed;
+        word-wrap: break-word; 
+    }
 
 tr.output, td.output 
-{
-    max-width: 200px;
-}
+    {
+        max-width: 500px;
+        border: 1px solid black;
+        word-wrap: break-word; /* Ensures long text breaks properly */
+        overflow-wrap: break-word;
+    }
 
 footer
     {
