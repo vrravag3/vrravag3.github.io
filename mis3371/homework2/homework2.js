@@ -55,3 +55,16 @@ function reviewInput()
     formoutput += "</table>";
     document.getElementById("showInput").innerHTML = formoutput;
 }
+
+function validateFname() 
+{
+    let fnameInput = document.getElementById("fname");
+    let errorSpan = document.getElementById("fname-error");
+
+    let pattern = /^[a-zA-Z' -]{1,30}$/; // Allows letters, apostrophes, dashes, and spaces
+    if (!pattern.test(fnameInput.value.trim())) {
+        errorSpan.textContent = "Letters, apostrophes and dashes only";
+    } else {
+        errorSpan.textContent = "";
+    }
+}
