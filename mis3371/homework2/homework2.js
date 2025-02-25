@@ -10,7 +10,7 @@ Purpose: A Clinic Patient form
 function reviewInput() 
 {
     var formcontent = document.getElementById("psignup");
-    var formoutput = "<table class='output'><th><center> Review Your Information:</center></th>";
+    var formoutput = "<table class='output'><th>Review Your Information:</th>";
     for (let i = 0; i < formcontent.length; i++) {
         if (formcontent.elements[i].value !== "") {
             switch (formcontent.elements[i].type) {
