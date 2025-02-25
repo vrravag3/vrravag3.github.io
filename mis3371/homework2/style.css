@@ -47,6 +47,8 @@ td
     }
 
 table.output,
+tr.output,
+td.output
 {
     width: 500px;
     background-color: #ffffff;
