@@ -56,6 +56,11 @@ table.output
     border-radius: 20px;
 }
 
+tr.output, td.output 
+{
+    border: 1px solid black;
+}
+
 div
     {
         position: bottom;
