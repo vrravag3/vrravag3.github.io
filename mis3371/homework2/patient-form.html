@@ -32,9 +32,9 @@ Purpose: A Clinic Patient form
                             Full Name:
                         </th>
                         <td>
-                            <input type="text" name="first-name" id="fname" placeholder="First Name" maxlength="30" required>
-                            <input type="text" name="middle-initial" id="mname" placeholder="M.I." maxlength="1" style="width: 30px">
-                            <input type="text" name="last-name" id="lname" placeholder="Last Name" maxlength="30" style="width: 135px" required>
+                            <input type="text" name="First Name:" id="fname" placeholder="First Name" maxlength="30" required>
+                            <input type="text" name="Middle Initial:" id="mname" placeholder="M.I." maxlength="1" style="width: 30px">
+                            <input type="text" name="Last Name:" id="lname" placeholder="Last Name" maxlength="30" style="width: 135px" required>
                         </td>
                     </tr>
                     <tr>
@@ -43,7 +43,7 @@ Purpose: A Clinic Patient form
                             Date of Birth:
                         </th>
                         <td>
-                            <input type="date" id="dob" name="Date of Birth" style="width: 165px" required>
+                            <input type="date" id="dob" name="Date of Birth:" style="width: 165px" required>
                         </td>
                     </tr>
                     <tr>
@@ -51,7 +51,7 @@ Purpose: A Clinic Patient form
                             Social Security Number:
                         </th>
                         <td>
-                            <input type="text" id="ssn" name="SSN;" minlength="9" maxlength="11" required>
+                            <input type="text" id="ssn" name="SSN:" minlength="9" maxlength="11" required>
                         </td>
                     </tr>
                     <tr>
@@ -59,7 +59,7 @@ Purpose: A Clinic Patient form
                             Address Line 1:
                         </th>
                         <td>
-                            <input type="text" name="AddressLine1" id="addr1" maxlength="30" required>
+                            <input type="text" name="AddressLine1:" id="addr1" maxlength="30" required>
                         </td>
                     </tr>
                     <tr>
@@ -67,7 +67,7 @@ Purpose: A Clinic Patient form
                             Address Line 2:
                         </th>
                         <td>
-                            <input type="text" name="AddressLine2" id="addr2" maxlength="30">
+                            <input type="text" name="AddressLine2:" id="addr2" maxlength="30">
                         </td>
                     </tr>
                     <tr>
@@ -76,9 +76,9 @@ Purpose: A Clinic Patient form
                             City, State, Zip:
                         </th>
                         <td>
-                            <input type="text" name="City" id="city" placeholder="City" maxlength="30" style="width: 110px" required>
+                            <input type="text" name="City:" id="city" placeholder="City" maxlength="30" style="width: 110px" required>
                             <!-- Code from https://www.freeformatter.com/usa-state-list-html-select.html -->
-                            <select required name= "state" id= "state" style="width: 110px">
+                            <select required name= "State:" id= "state" style="width: 110px">
                                 <option value="">State</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -132,7 +132,7 @@ Purpose: A Clinic Patient form
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
                             </select>
-                            <input type="text" name="Zip" id="zip" placeholder="Zip" style="width: 110px" minlength="5" maxlength="10" required>
+                            <input type="text" name="Zip:" id="zip" placeholder="Zip" style="width: 110px" minlength="5" maxlength="10" required>
                         </td>
                     </tr>
                     <tr>
@@ -140,9 +140,9 @@ Purpose: A Clinic Patient form
                             <label for="gender">Gender:</label></td>
                         </th>
                         <td>       
-                            <input type="radio" id="g1" name="gender" value="male" required> Male                                                      
-                            <input type="radio" id="g2" name="gender" value="female" required> Female       
-                            <input type="radio" id="g3" name="gender" value="other" required> Other 
+                            <input type="radio" id="g1" name="Gender:" value="male" required> Male                                                      
+                            <input type="radio" id="g2" name="Gender:" value="female" required> Female       
+                            <input type="radio" id="g3" name="Gender:" value="other" required> Other 
                         </td>
                     </tr>
                     <tr>
@@ -151,19 +151,19 @@ Purpose: A Clinic Patient form
                         </th>
                         <td>
                             <label for="diabetes">
-                                <input type="checkbox" id="diabetes" name="medicalHistory" value="Diabetes"> Diabetes
+                                <input type="checkbox" id="diabetes" name="Diabetes" value="Diabetes"> Diabetes
                             </label>
                             <label for="hypertension">
-                                <input type="checkbox" id="hypertension" name="medicalHistory" value="Hypertension">Hypertension
+                                <input type="checkbox" id="hypertension" name="Hypertension" value="Hypertension">Hypertension
                             </label>
                             <label for="asthma">
-                                <input type="checkbox" id="asthma" name="medicalHistory" value="Asthma">Asthma
+                                <input type="checkbox" id="asthma" name="Asthma" value="Asthma">Asthma
                             </label>
                             <label for="heartDisease">
-                                <input type="checkbox" id="heartDisease" name="medicalHistory" value="Heart Disease">Heart Disease
+                                <input type="checkbox" id="heartDisease" name="Heart Disease" value="Heart Disease">Heart Disease
                             </label>
                             <label for="cancer">
-                                <input type="checkbox" id="cancer" name="medicalHistory" value="cancer">Cancer
+                                <input type="checkbox" id="cancer" name="Cancer" value="cancer">Cancer
                             </label>
                         </td>
                     </tr>
@@ -172,7 +172,7 @@ Purpose: A Clinic Patient form
                             Additional Health Concerns:
                         </th>
                         <td>
-                            <textarea id="w3review" name="w3review" rows="3" cols="50"></textarea> 
+                            <textarea id="addcon" name="Additional Concerns:" rows="3" cols="50"></textarea> 
                         </td>
                     </tr>
                     <tr>
@@ -181,10 +181,10 @@ Purpose: A Clinic Patient form
                         </th>
                         <td>
                             <label for="Yes">
-                                <input type="radio" id="fluyes" name="response" value="yes" required> Yes
+                                <input type="radio" id="fluyes" name="Flushot:" value="yes" required> Yes
                             </label>
                             <label for="No">
-                                <input type="radio" id="fluno" name="response" value="no" required> No
+                                <input type="radio" id="fluno" name="Flueshot:" value="no" required> No
                             </label>
                         </td>
                     </tr>
@@ -194,10 +194,10 @@ Purpose: A Clinic Patient form
                         </th>
                         <td>
                             <label for="Yes">
-                                <input type="radio" id="medyes" name="medresponse" value="yes" required> Yes
+                                <input type="radio" id="medyes" name="Medications:" value="yes" required> Yes
                             </label>
                             <label for="no">
-                                <input type="radio" id="medno" name="medresponse" value="no" required> No
+                                <input type="radio" id="medno" name="Medications:" value="no" required> No
                             </label>
                         </td>
                     </tr>
@@ -206,7 +206,7 @@ Purpose: A Clinic Patient form
                             Rate your Current Pain if Any (0-10):
                         </th>
                         <td>
-                            0 <input type="range" id="pain" name="pain" min="0" max="10"> 10
+                            0 <input type="range" id="pain" name="Pain Level:" min="0" max="10"> 10
                         </td>
                     </tr>
                     <tr>
@@ -214,7 +214,7 @@ Purpose: A Clinic Patient form
                             Create User ID:
                         </th>
                         <td>
-                            <input type="text" id="userID" name="userID" required>
+                            <input type="text" id="userID" name="UserID:" required>
                         </td>
                     </tr>
                     <tr>
@@ -222,7 +222,7 @@ Purpose: A Clinic Patient form
                             Email:
                         </th>
                         <td>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="Email:" required>
                         </td>
                     </tr>
                     <tr>
@@ -230,7 +230,7 @@ Purpose: A Clinic Patient form
                             Phone Number:
                         </th>
                         <td>
-                            <input type="text" id="phnum" name="phone number" required>
+                            <input type="text" id="phnum" name="Phone Number:" required>
                         </td>
                     </tr>
                     <tr>
@@ -238,7 +238,7 @@ Purpose: A Clinic Patient form
                             Create Password:
                         </th>
                         <td>
-                            <input type="password" id="password" name="passowrd" required>
+                            <input type="password" id="password" name="Password" required>
                         </td>
                     </tr>
                     <tr>
@@ -246,7 +246,7 @@ Purpose: A Clinic Patient form
                             Confirm Password:
                         </th>
                         <td>
-                            <input type="password" id="confirmedpassword" name="confirmedpassword" required>
+                            <input type="password" id="confirmedpassword" name="ConfirmedPassword" required>
                         </td>
                     </tr>
                     <tr>
