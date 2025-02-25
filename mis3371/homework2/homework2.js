@@ -71,7 +71,7 @@ function validateFname()
 
 function validateLname() 
 {
-    let fnameInput = document.getElementById("lname");
+    let lnameInput = document.getElementById("lname");
     let errorSpan = document.getElementById("lname-error");
 
     let pattern = /^[a-zA-Z' -]*[2-5]{0,1}[a-zA-Z' -]*$/;
