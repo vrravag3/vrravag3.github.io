@@ -60,13 +60,6 @@ td.output
     margin: auto;
 }
 
-td.output 
-{
-    width: 500px;
-    background-color: Pick a color;
-    padding: 10px;
-    border-spacing: 2px;
-}
 
 div
     {
