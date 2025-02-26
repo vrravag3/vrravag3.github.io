@@ -214,39 +214,6 @@ function validateUid() {
     }
 }
 
-function validatePword() {
-    const pword = document.getElementById("password").value;
-    const Uid = document.getElementById("Uid").value;
-    const errorContainer = document.getElementById("pword-error");
-    
-    const errorMessage = []
-
-    if(!pword.match(/[a-z]/)) {
-        errorMessage.push("Enter at least one lowercase letter");
-    }
-
-    if (!pword.match(/[A-Z]/)) {
-        errorMessage.push("Enter at least one uppercase letter");
-    }
-    
-    if (!pword.match(/[0-9]/)) {
-        errorMessage.push("Enter at least one number");
-    }
-
-    if (!pword.match(/[!\@#\$%&*\-_\\.+\(\)]/)) {
-        errorMessage.push("Enter at least one special character");
-    }
-
-    if (!pword.match(pword.includes(uid)) {
-        errorMessage.push("Enter at least one special character");
-    }
-    if (errorMessage.length > 0) {
-        errorContainer.innerHTML = errorMessage.join("<br>");
-    } else {
-        errorContainer.innerHTML = ""
-    }
-}
-
 function confirmPword() 
 {
     pword1 = document.getElementById("password").value;
