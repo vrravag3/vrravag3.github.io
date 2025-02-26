@@ -198,7 +198,7 @@ function validateUid() {
     let regex = /^[a-zA-Z0-9_-]+$/;
     if (!regex.test(uid)) {
         document.getElementById("uid-error").innerHTML = 
-        "User ID can only have letters, numbers, underscores, and dashes";
+        "No spaces or Special Characters (Dashes and Underlines are okay)";
         return false;
     } else if (uid.length < 5) {
         document.getElementById("uid-error").innerHTML = 
