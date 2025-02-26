@@ -213,6 +213,10 @@ function validateUid() {
     }
 }
 
+function validatePword() {
+    
+}
+
 function confirmPword() 
 {
     pword1 = document.getElementById("password").value;
