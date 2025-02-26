@@ -165,7 +165,8 @@ function validatePhone()
 {
     const phoneInput = document.getElementById("phone");
     const phoneError = document.getElementById("phone-error");
-
+    const phone = phoneInput.value.trim()
+    
     if (phone === "") 
     {
         document.getElementById("phone-error").innerHTML = "Phone Number Missing";
