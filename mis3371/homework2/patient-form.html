@@ -289,6 +289,7 @@ Purpose: A Clinic Patient form
                                 required
                                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$"
                                 onblur="validateEmail()"
+                                palceholder= "name@domain.tld"
                                 style="width: 169px"
                                 />
                             <span class="error" id="email-error"></span>
@@ -299,7 +300,14 @@ Purpose: A Clinic Patient form
                             Phone Number:
                         </th>
                         <td>
-                            <input type="text" id="phnum" name="Phone Number:" required>
+                            <input type="text" 
+                                id="Phone" 
+                                name="Phone Number:" 
+                                required
+                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                onblur="validatePhone()"
+                                palceholder= "000-000-0000"
+                                >
                         </td>
                     </tr>
                     <tr>
