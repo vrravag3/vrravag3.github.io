@@ -153,3 +153,22 @@ function validateEmail()
         return true;
     }
 }
+
+//Phone format code from https://learnersbucket.com/examples/javascript/how-to-format-phone-number-in-javascript/
+function formatPhone(input) 
+{
+    let phoneNumber = input.value.replace(/\D/g, "");
+    if (phoneNumber.length > 10) 
+    {
+        phoneNumber = phoneNumber.substring(0, 10);
+    }
+    if (phoneNumber.length > 6) 
+    {
+        phoneNumber = phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+    } 
+        else if (phoneNumber.length > 3) 
+        {
+            phoneNumber = phoneNumber.replace(/(\d{3})(\d{1,3})/, "$1-$2");
+        }
+    input.value = phoneNumber;
+}
