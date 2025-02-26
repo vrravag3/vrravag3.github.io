@@ -7,23 +7,18 @@ Version: 1.0
 Purpose: Javascript for the patientform.html
 */
 
-function displayTodaysDate() 
-{
-    const d = new Date();
-    let text = d.toLocaleDateString();
-    document.getElementById("current-date").innerHTML = text;
-}
+const d = new Date();
+let text = d.toLocaleDateString();
+document.getElementById("current-date").innerHTML = text;
 
-function Slider()
-{
-    let slider = document.getElementById("range");
-    let output = document.getElementById("range-slider");
-    output.innerHTML = slider.value;
-    slider.oninput = function () 
+let slider = document.getElementById("range");
+let output = document.getElementById("range-slider");
+output.innerHTML = slider.value;
+slider.oninput = function () 
     {
         output.innerHTML = this.value;
     };
-}
+
 
 function reviewInput() 
 {
