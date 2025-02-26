@@ -144,7 +144,7 @@ function validateEmail()
     else if (!emailR.test(email)) 
     {
         document.getElementById("email-error").innerHTML = 
-        "Please enter a valid SSN";
+        "Email is not valid";
         return false;
     } 
     else 
