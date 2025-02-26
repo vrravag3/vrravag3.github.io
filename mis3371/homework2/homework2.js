@@ -161,7 +161,7 @@ function formatPhoneNumber(input)
     let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
 
     if (match) {
-        input.value = `(${match[1]}) ${match[2]}-${match[3]}`; 
+        input.value = `${match[1]}-${match[2]}-${match[3]}`; 
     } else {
         input.value = cleaned; 
     }
