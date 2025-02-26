@@ -217,7 +217,8 @@ function validateUid() {
 function validatePword() {
     const pword = document.getElementById("password").value;
     const Uid = document.getElementById("Uid").value;
-
+    const errorContainer = document.getElementById("pword-error");
+    
     const errorMessage = []
 
     if(!pword.match(/[a-z]/)) {
