@@ -155,7 +155,7 @@ function validateEmail()
 }
 
 //Phone format code from https://learnersbucket.com/examples/javascript/how-to-format-phone-number-in-javascript/
-function formatPhoneNumber(input) 
+function formatPhone(input) 
 {
     let cleaned = input.value.replace(/\D/g, ''); 
     let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
