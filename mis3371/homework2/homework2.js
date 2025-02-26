@@ -213,3 +213,21 @@ function validateUid() {
         return true;
     }
 }
+
+
+
+function confirmPword() 
+{
+    pword1 = document.getElementById("pword").value;
+    pword2 = document.getElementById("con_pword").value;
+
+    if (pword1 !== pword2) {
+        document.getElementById("pword2-error").innerHTML = 
+        "Passwords don't match";
+        return false;
+    } else {
+        document.getElementById("pword2-error").innerHTML = 
+        "Passwords match";
+        return true;
+    }
+}
