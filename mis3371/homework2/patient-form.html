@@ -102,7 +102,16 @@ Purpose: A Clinic Patient form
                             Social Security Number:
                         </th>
                         <td>
-                            <input type="text" id="ssn" name="SSN:" minlength="9" maxlength="11" required>
+                            <input type="password" 
+                                id="ssn" 
+                                name="SSN:" 
+                                minlength="9" 
+                                maxlength="11" 
+                                required
+                                title="Numbers only"
+                                onblur="validateSsn()"
+                            />
+                            <span class="error" id="ssn-error"></span>
                         </td>
                     </tr>
                     <tr>
