@@ -7,7 +7,6 @@ Version: 1.0
 Purpose: Javascript for the patientform.html
 */
 
-
 function reviewInput() 
 {
     var formcontent = document.getElementById("psignup");
