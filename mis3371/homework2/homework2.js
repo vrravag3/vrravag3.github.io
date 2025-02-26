@@ -176,3 +176,4 @@ function validatePhone()
         document.getElementById("phone-error").innerHTML = "";
         return true;
     }
+}
