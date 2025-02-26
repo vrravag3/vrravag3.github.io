@@ -214,23 +214,6 @@ function validateUid() {
     }
 }
 
-function validatePword() {
-    let pword = document.getElementById("password").value;
-    let errorMessage = [];
-
-    if (!pword.match(/[a-z]/)) errorMessage.push("Enter at least one lowercase letter.");
-    if (!pword.match(/[A-Z]/)) errorMessage.push("Enter at least one uppercase letter.");
-    if (!pword.match(/[0-9]/)) errorMessage.push("Enter at least one number.");
-    if (!pword.match(/[!\@#\$%&*\-_\\.+\(\)]/)) errorMessage.push("Enter at least one special character.");
-    if (pword.length < 8) errorMessage.push("Password must be at least 8 characters long.");
-
-    let errorDisplay = document.getElementById("passwordError");
-    if (errorMessage.length > 0) {
-        errorDisplay.innerHTML = errorMessage.join("<br>");
-    } else {
-        errorDisplay.innerHTML = "✅ Password is valid!";
-    }
-}
 
 function confirmPword() 
 {
