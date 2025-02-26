@@ -298,13 +298,14 @@ Purpose: A Clinic Patient form
                         </th>
                         <td>
                             <input type="text" 
-                                id="Phone" 
+                                id="phone" 
                                 name="Phone Number:"
                                 required
                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                 onblur="validatePhone()"
                                 placeholder= "000-000-0000"
-                                >
+                                />
+                            <span class="error" id="phone-error"></span>
                         </td>
                     </tr>
                     <tr>
