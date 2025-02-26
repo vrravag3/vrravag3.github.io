@@ -96,13 +96,11 @@ function validateDob()
     let maxDate = new Date().setFullYear(new Date().getFullYear() - 120);
 
     if (date > new Date()) {
-        document.getElementById("dob-error").innerHTML = 
-        "Date can't be in the future";
+        document.getElementById("dob-error").innerHTML = "Date can't be in the future";
         dob.value = "";
         return false;
     } else if (date < new Date(maxDate)) {
-        document.getElementById("dob-error").innerHTML = 
-        "Date can't be more than 120 years ago";
+        document.getElementById("dob-error").innerHTML = "Date can't be more than 120 years ago";
         dob.value = "";
         return false;
     } else {
@@ -118,8 +116,7 @@ function validateSsn()
 
     if (!ssnR.test(ssn)) 
     {
-        document.getElementById("ssn-error").innerHTML = 
-        "Please enter a valid SSN";
+        document.getElementById("ssn-error").innerHTML = "Please enter a valid SSN";
         return false;
     } else 
     {
@@ -136,15 +133,12 @@ function validateEmail()
 
     if (email === "") 
     {
-        document.getElementById("email-error").innerHTML = 
-        "Email is missing";
-        emailInput.classList.add("error");
+        document.getElementById("email-error").innerHTML = "Email is missing";
         return false;
     } 
     else if (!emailR.test(email)) 
     {
-        document.getElementById("email-error").innerHTML = 
-        "Email is not valid";
+        document.getElementById("email-error").innerHTML = "Email is not valid";
         return false;
     } 
     else 
@@ -166,3 +160,19 @@ function formatPhone(input)
         input.value = cleaned; 
     }
 }
+
+function validatePhone()
+{
+    const phoneInput = document.getElementById("phone");
+    const phoneError = document.getElementById("phone-error");
+
+    if (phone === "") 
+    {
+        document.getElementById("phone-error").innerHTML = "Phone Number Missing";
+        return false;
+    } 
+    else 
+    {
+        document.getElementById("phone-error").innerHTML = "";
+        return true;
+    }
