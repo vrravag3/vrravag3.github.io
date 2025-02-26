@@ -9,7 +9,7 @@ Purpose: Javascript for the patientform.html
 
 const d = new Date();
 let text = d.toLocaleDateString();
-document.getElementById("today").innerHTML = text;
+document.getElementById("current-date").innerHTML = text;
 
 let slider = document.getElementById("range");
 let output = document.getElementById("range-slider");
