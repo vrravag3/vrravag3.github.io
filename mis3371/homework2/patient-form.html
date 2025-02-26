@@ -323,9 +323,9 @@ Purpose: A Clinic Patient form
                                 id="password" 
                                 name="Password:" 
                                 required
-                                onblur="validatePword()"
+                                onblur="validatePword(); confirmPword();"
                                 oninput="validatePword(); confirmPword();"
-                                onfocus="validatePword()"
+                                onfocus="validatePword(); confirmPword();"
                                 />
                         </td>
                     </tr>
