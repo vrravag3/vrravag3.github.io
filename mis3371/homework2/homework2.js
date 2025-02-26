@@ -213,9 +213,8 @@ function validateUid() {
         return true;
     }
 }
-/*
-function validatePword()
-{
+
+function validatePword() {
     const pword = document.getElementById("password").value;
     const Uid = document.getElementById("Uid").value;
 
@@ -237,13 +236,16 @@ function validatePword()
         errorMessage.push("Enter at least one special character");
     }
 
+    if (!pword.match(pword.includes(uid)) {
+        errorMessage.push("Enter at least one special character");
+    }
     if (errorMessage.length > 0) {
         errorContainer.innerHTML = errorMessage.join("<br>");
     } else {
-        errorContainer.innerHTML = "";
+        errorContainer.innerHTML = ""
     }
 }
-*/
+
 function confirmPword() 
 {
     pword1 = document.getElementById("password").value;
