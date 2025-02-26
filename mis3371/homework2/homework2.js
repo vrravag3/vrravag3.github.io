@@ -155,20 +155,14 @@ function validateEmail()
 }
 
 //Phone format code from https://learnersbucket.com/examples/javascript/how-to-format-phone-number-in-javascript/
-function formatPhone(input) 
+function formatPhoneNumber(input) 
 {
-    let phoneNumber = input.value.replace(/\D/g, "");
-    if (phoneNumber.length > 10) 
-    {
-        phoneNumber = phoneNumber.substring(0, 10);
+    let cleaned = input.value.replace(/\D/g, ''); 
+    let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+
+    if (match) {
+        input.value = `(${match[1]}) ${match[2]}-${match[3]}`; 
+    } else {
+        input.value = cleaned; 
     }
-    if (phoneNumber.length > 6) 
-    {
-        phoneNumber = phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
-    } 
-        else if (phoneNumber.length > 3) 
-        {
-            phoneNumber = phoneNumber.replace(/(\d{3})(\d{1,3})/, "$1-$2");
-        }
-    input.value = phoneNumber;
 }
