@@ -68,8 +68,13 @@ footer
     }
 
 .error 
-{
-    color: black;
-    font-size: 12px;
-    font-family: Courier New, monospace;
-}
+    {
+        color: black;
+        font-size: 12px;
+        font-family: Courier New, monospace;
+    }
+
+#pword-error 
+   {
+       display: block;
+   }
