@@ -53,7 +53,6 @@ table.output, tr.output, td.output
         padding: 10px;
         border: 1px solid;
         border-spacing: 2px;
-        border-radius: 20px;
         table-layout: fixed;
         word-wrap: break-word; 
     }
