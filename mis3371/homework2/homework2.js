@@ -133,24 +133,23 @@ function validateEmail()
     const emailInput = document.getElementById("email");
     const email = emailInput.value.trim();
     const emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    const errorElement = document.getElementById("email-error");
 
     if (email === "") 
     {
-        errorElement.innerHTML = "Email is missing";
+        document.getElementById("email-error").innerHTML = 
+        "Email is missing";
         emailInput.classList.add("error");
         return false;
     } 
     else if (!emailR.test(email)) 
     {
-        errorElement.innerHTML = "Email Address not valid.";
-        emailInput.classList.add("error");
+        document.getElementById("email-error").innerHTML = 
+        "Please enter a valid SSN";
         return false;
     } 
     else 
     {
-        errorElement.innerHTML = "";
-        emailInput.classList.remove("error");
+        document.getElementById("email-error").innerHTML = "";
         return true;
     }
 }
