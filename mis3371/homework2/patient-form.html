@@ -302,6 +302,7 @@ Purpose: A Clinic Patient form
                                 name="Phone Number:"
                                 required
                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                oninput="formatPhone(this)"
                                 onblur="validatePhone()"
                                 placeholder= "000-000-0000"
                                 />
