@@ -7,9 +7,12 @@ Version: 1.0
 Purpose: Javascript for the patientform.html
 */
 
-const d = new Date();
-let text = d.toLocaleDateString();
-document.getElementById("current-date").innerHTML = text;
+function displayTodaysDate() 
+{
+    const d = new Date();
+    let text = d.toLocaleDateString();
+    document.getElementById("current-date").innerHTML = text;
+}
 
 let slider = document.getElementById("range");
 let output = document.getElementById("range-slider");
