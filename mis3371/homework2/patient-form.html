@@ -272,8 +272,13 @@ Purpose: A Clinic Patient form
                             Create User ID:
                         </th>
                         <td>
-                            <input type="text" id="userID" name="UserID:" required>
-                            
+                            <input type="text" 
+                                id="uid" 
+                                name="UserID:" 
+                                required
+                                onblur="validateUid()"
+                            />
+                            <span class="error" id="uid-error"></span>
                         </td>
                     </tr>
                     <tr>
