@@ -319,7 +319,14 @@ Purpose: A Clinic Patient form
                             Create Password:
                         </th>
                         <td>
-                            <input type="password" id="password" name="Password:" required>
+                            <input type="password" 
+                                id="password" 
+                                name="Password:" 
+                                required
+                                onblur="validatePword()"
+                                oninput="validatePword()"
+                                onfocus="validatePword()"
+                                />
                         </td>
                     </tr>
                     <tr>
@@ -327,7 +334,15 @@ Purpose: A Clinic Patient form
                             Confirm Password:
                         </th>
                         <td>
-                            <input type="password" id="confirmedpassword" name="ConfirmedPassword:" required>
+                            <input type="password" 
+                                id="confirmedpassword" 
+                                name="ConfirmedPassword:" 
+                                required
+                                onblur="confirmPword()"
+                                oninput="confirmPword()"
+                                onfocus="confirmPword()"
+                            />
+                            <span class="error" id="pword2-error"></span>
                         </td>
                     </tr>
                     <tr>
