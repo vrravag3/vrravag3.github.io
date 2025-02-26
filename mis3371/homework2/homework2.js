@@ -178,3 +178,38 @@ function validatePhone()
         return true;
     }
 }
+
+function validateUid() {
+    uid = document.getElementById("uid").value.toLowerCase();
+    document.getElementById("uid").value = uid;
+
+    if (uid.length == 0) {
+        document.getElementById("uid-error").innerHTML = 
+        "User ID can't be blank";
+        return false;
+    }
+
+    if (!isNaN(uid.charAt(0))) {
+        document.getElementById("uid-error").innerHTML = 
+        "User ID can't start with a number";
+        return false;
+    }
+
+    let regex = /^[a-zA-Z0-9_-]+$/;
+    if (!regex.test(uid)) {
+        document.getElementById("uid-error").innerHTML = 
+        "User ID can only have letters, numbers, underscores, and dashes";
+        return false;
+    } else if (uid.length < 5) {
+        document.getElementById("uid-error").innerHTML = 
+        "User ID must be at least 5 characters";
+        return false;
+    } else if (uid.length > 30) {
+        document.getElementById("uid-error").innerHTML = 
+        "User ID can't exceed 30 characters";
+        return false;
+    } else {
+        document.getElementById("uid-error").innerHTML = "";
+        return true;
+    }
+}
