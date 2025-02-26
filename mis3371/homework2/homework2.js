@@ -93,8 +93,9 @@ function validateDob()
     dob = document.getElementById("dob");
     let date = new Date(dob.value);
     let maxDate = new Date().setFullYear(new Date().getFullYear() - 120);
-
-    if (date > new Date()) {
+    let today = new Date();
+    
+    if (date > today) {
         document.getElementById("dob-error").innerHTML = "Date can't be in the future";
         dob.value = "";
         return false;
