@@ -7,6 +7,9 @@ Version: 1.0
 Purpose: Javascript for the patientform.html
 */
 
+//Todays date moved over from html file
+document.getElementById("current-date").textContent = new Date().toLocaleDateString();
+
 function reviewInput() 
 {
     var formcontent = document.getElementById("psignup");
