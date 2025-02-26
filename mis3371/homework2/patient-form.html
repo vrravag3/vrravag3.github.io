@@ -35,7 +35,6 @@ Purpose: A Clinic Patient form
                             <input type="text" 
                                 name="First Name:" 
                                 id="fname" 
-                                placeholder="First Name" 
                                 maxlength="30" 
                                 title="Letter, apostrophes, and dashes only"
                                 pattern="[a-zA-Z']{1,30}"
@@ -56,7 +55,6 @@ Purpose: A Clinic Patient form
                                 title="Letters only"
                                 pattern="[a-zA-Z']{0,1}"
                                 onblur="validateMini()"
-                                placeholder="M.I." 
                                 maxlength="1" 
                                 style="width: 30px"
                             />
@@ -71,7 +69,6 @@ Purpose: A Clinic Patient form
                             <input type="text" 
                                 name="Last Name:" 
                                 id="lname" 
-                                placeholder="Last Name" 
                                 maxlength="30"
                                 title="Letters, apostrophes, numbers 2 to 5, ie, the 3rd, and dashes only"
                                 pattern="[a-zA-Z' -]*[2-5]{0,1}[a-zA-Z' -]*"
@@ -289,7 +286,7 @@ Purpose: A Clinic Patient form
                                 required
                                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$"
                                 onblur="validateEmail()"
-                                palceholder= "name@domain.tld"
+                                placeholder= "name@domain.tld"
                                 style="width: 169px"
                                 />
                             <span class="error" id="email-error"></span>
@@ -302,11 +299,11 @@ Purpose: A Clinic Patient form
                         <td>
                             <input type="text" 
                                 id="Phone" 
-                                name="Phone Number:" 
+                                name="Phone Number:"
                                 required
                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                 onblur="validatePhone()"
-                                palceholder= "000-000-0000"
+                                placeholder= "000-000-0000"
                                 >
                         </td>
                     </tr>
