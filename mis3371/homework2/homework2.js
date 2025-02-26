@@ -111,16 +111,46 @@ function validateDob()
     }
 }
 
-function validateSsn() {
+function validateSsn() 
+{
     const ssn = document.getElementById("ssn").value;
     const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
 
-    if (!ssnR.test(ssn)) {
+    if (!ssnR.test(ssn)) 
+    {
         document.getElementById("ssn-error").innerHTML = 
         "Please enter a valid SSN";
         return false;
-    } else {
+    } else 
+    {
         document.getElementById("ssn-error").innerHTML = "";
+        return true;
+    }
+}
+
+function validateEmail() 
+{
+    const emailInput = document.getElementById("email");
+    const email = emailInput.value.trim();
+    const emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const errorElement = document.getElementById("email-error");
+
+    if (email === "") 
+    {
+        errorElement.innerHTML = "Email is missing";
+        emailInput.classList.add("error");
+        return false;
+    } 
+    else if (!emailR.test(email)) 
+    {
+        errorElement.innerHTML = "Email Address not valid.";
+        emailInput.classList.add("error");
+        return false;
+    } 
+    else 
+    {
+        errorElement.innerHTML = "";
+        emailInput.classList.remove("error");
         return true;
     }
 }
