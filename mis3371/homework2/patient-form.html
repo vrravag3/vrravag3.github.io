@@ -283,7 +283,14 @@ Purpose: A Clinic Patient form
                             Email:
                         </th>
                         <td>
-                            <input type="email" id="email" name="Email:" required>
+                            <input type="email" 
+                                id="email" 
+                                name="Email:" 
+                                required
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$"
+                                onblur="validateEmail()"
+                                />
+                            <span class="error" id="Email-error"></span>
                         </td>
                     </tr>
                     <tr>
