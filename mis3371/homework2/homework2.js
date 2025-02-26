@@ -218,8 +218,8 @@ function validateUid() {
 
 function confirmPword() 
 {
-    pword1 = document.getElementById("pword").value;
-    pword2 = document.getElementById("con_pword").value;
+    pword1 = document.getElementById("password").value;
+    pword2 = document.getElementById("confirmedpassword").value;
 
     if (pword1 !== pword2) {
         document.getElementById("pword2-error").innerHTML = 
