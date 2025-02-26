@@ -218,7 +218,7 @@ function validateUid() {
         return true;
     }
 }
-
+/*
 function validatePword()
 {
     const pword = document.getElementById("password").value;
@@ -248,7 +248,7 @@ function validatePword()
         errorContainer.innerHTML = "";
     }
 }
-
+*/
 function confirmPword() 
 {
     pword1 = document.getElementById("password").value;
