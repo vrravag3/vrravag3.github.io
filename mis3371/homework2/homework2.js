@@ -110,3 +110,17 @@ function validateDob()
         return true;
     }
 }
+
+function validateSsn() {
+    const ssn = document.getElementById("ssn").value;
+    const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
+
+    if (!ssnR.test(ssn)) {
+        document.getElementById("ssn-error").innerHTML = 
+        "Please enter a valid SSN";
+        return false;
+    } else {
+        document.getElementById("ssn-error").innerHTML = "";
+        return true;
+    }
+}
