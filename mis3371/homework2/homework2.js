@@ -6,9 +6,18 @@ Date Updated: 2/27/2025
 Version: 1.0
 Purpose: Javascript for the patientform.html
 */
+const d = new Date();
+let text = d.toLocaleDateString();
+document.getElementById("current-date").innerHTML = text;
 
-//Todays date moved over from html file
-document.getElementById("current-date").textContent = new Date().toLocaleDateString();
+
+let slider = document.getElementById("range");
+let output = document.getElementById("range-slider");
+output.innerHTML = slider.value;
+
+slider.oninput = function () {
+    output.innerHTML = this.value;
+};
 
 function reviewInput() 
 {
