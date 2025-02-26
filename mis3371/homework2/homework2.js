@@ -14,14 +14,16 @@ function displayTodaysDate()
     document.getElementById("current-date").innerHTML = text;
 }
 
-let slider = document.getElementById("range");
-let output = document.getElementById("range-slider");
-output.innerHTML = slider.value;
-
-slider.oninput = function () 
+function Slider()
 {
-    output.innerHTML = this.value;
-};
+    let slider = document.getElementById("range");
+    let output = document.getElementById("range-slider");
+    output.innerHTML = slider.value;
+    slider.oninput = function () 
+    {
+        output.innerHTML = this.value;
+    };
+}
 
 function reviewInput() 
 {
