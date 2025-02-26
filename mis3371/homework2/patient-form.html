@@ -38,7 +38,7 @@ Purpose: A Clinic Patient form
                                 maxlength="30" 
                                 title="Letter, apostrophes, and dashes only"
                                 pattern="[a-zA-Z']{1,30}"
-                                onblur="validateFname()"
+                                oninput="validateFname()"
                                 required
                             />
                             <span class="error" id="fname-error"></span>
@@ -54,7 +54,7 @@ Purpose: A Clinic Patient form
                                 id="mname" 
                                 title="Letters only"
                                 pattern="[a-zA-Z']{0,1}"
-                                onblur="validateMini()"
+                                oninput="validateMini()"
                                 maxlength="1" 
                                 style="width: 30px"
                             />
@@ -72,7 +72,7 @@ Purpose: A Clinic Patient form
                                 maxlength="30"
                                 title="Letters, apostrophes, numbers 2 to 5, ie, the 3rd, and dashes only"
                                 pattern="[a-zA-Z' -]*[2-5]{0,1}[a-zA-Z' -]*"
-                                onblur="validateLname()" 
+                                oninput="validateLname()" 
                                 required
                             />
                             <span class="error" id="lname-error"></span>
@@ -89,7 +89,7 @@ Purpose: A Clinic Patient form
                                 name="Date of Birth:" 
                                 style="width: 171px" 
                                 required
-                                onblur="validateDob()"
+                                oninput="validateDob()"
                             />
                             <span class="error" id="dob-error"></span>
                         </td>
@@ -106,7 +106,7 @@ Purpose: A Clinic Patient form
                                 maxlength="11" 
                                 required
                                 title="Numbers only"
-                                onblur="validateSsn()"
+                                oninput="validateSsn()"
                             />
                             <span class="error" id="ssn-error"></span>
                         </td>
@@ -277,7 +277,7 @@ Purpose: A Clinic Patient form
                                 name="Email:" 
                                 required
                                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$"
-                                onblur="validateEmail()"
+                                oninput="validateEmail()"
                                 placeholder= "name@domain.tld"
                                 />
                             <span class="error" id="email-error"></span>
