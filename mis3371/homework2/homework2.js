@@ -214,7 +214,23 @@ function validateUid() {
 }
 
 function validatePword() {
-    
+    let pword = document.getElementById("password").value;
+    let errorMessage = [];
+    let errorElement = document.getElementById("pword-error");
+    let uid = "TestUser";
+
+    if (!pword.match(/[a-z]/)) errorMessage.push("At least one lowercase letter");
+    if (!pword.match(/[A-Z]/)) errorMessage.push("At least one uppercase letter");
+    if (!pword.match(/[0-9]/)) errorMessage.push("At least one number");
+    if (!pword.match(/[!\@#\$%&*\-_\\.+\(\)]/)) errorMessage.push("At least one special character");
+    if (pword.includes(uid)) errorMessage.push("Cannot contain user ID");
+    if (pword.length < 8) errorMessage.push("Must be at least 8 characters long");
+
+    if (errorMessage.length > 0) {
+        errorElement.innerHTML = errorMessage.join("<br>");
+    } else {
+        errorElement.innerHTML = "";
+    }
 }
 
 function confirmPword() 
