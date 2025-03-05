@@ -116,7 +116,7 @@ Purpose: A Clinic Patient form
                             Address Line 1:
                         </th>
                         <td>
-                            <input type="text" name="AddressLine1:" id="addr1" maxlength="30" required>
+                            <input type="text" name="AddressLine1:" id="addr1" minlength="2" maxlength="30" required>
                         </td>
                     </tr>
                     <tr>
@@ -124,7 +124,7 @@ Purpose: A Clinic Patient form
                             Address Line 2:
                         </th>
                         <td>
-                            <input type="text" name="AddressLine2:" id="addr2" maxlength="30">
+                            <input type="text" name="AddressLine2:" id="addr2" minlength="2" maxlength="30">
                         </td>
                     </tr>
                     <tr>
@@ -278,6 +278,7 @@ Purpose: A Clinic Patient form
                                 required
                                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$"
                                 oninput="validateEmail()"
+                                onblur="validateEmail()"
                                 placeholder= "name@domain.tld"
                                 />
                             <span class="error" id="email-error"></span>
@@ -310,7 +311,6 @@ Purpose: A Clinic Patient form
                                 name="UserID:" 
                                 required
                                 onblur="validateUid()"
-                                oninput="validateUid()"
                             />
                             <span class="error" id="uid-error"></span>
                         </td>
@@ -337,7 +337,7 @@ Purpose: A Clinic Patient form
                         </th>
                         <td>
                             <input type="password" 
-                                id="confirmedpassword" 
+                                id="confirmpassword" 
                                 name="ConfirmedPassword:" 
                                 required
                                 onblur="confirmPword()"
