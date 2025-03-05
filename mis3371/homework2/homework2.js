@@ -2,7 +2,7 @@
 Program name: homework2.js
 Author: Vince Ravago
 Date Created: 2/24/2025
-Date Updated: 2/27/2025
+Date Updated: 3/7/2025
 Version: 1.0
 Purpose: Javascript for the patientform.html
 */
@@ -19,8 +19,7 @@ slider.oninput = function () {
     output.innerHTML = this.value;
 };
 
-function reviewInput() 
-{
+function reviewInput() {
     var formcontent = document.getElementById("psignup");
     var formoutput = "<table class='output'><caption>Review Your Information</caption>";
     for (let i = 0; i < formcontent.length; i++) 
@@ -60,8 +59,7 @@ function removeReview()
     document.getElementById("showInput").innerHTML = "";
 }
 
-function validateFname() 
-{
+function validateFname() {
     let fnameInput = document.getElementById("fname");
     let errorSpan = document.getElementById("fname-error");
 
@@ -73,8 +71,7 @@ function validateFname()
     }
 }
 
-function validateLname() 
-{
+function validateLname() {
     let lnameInput = document.getElementById("lname");
     let errorSpan = document.getElementById("lname-error");
 
@@ -88,13 +85,12 @@ function validateLname()
     }
 }
 
-function validateDob() 
-{
+function validateDob() {
     dob = document.getElementById("dob");
     let date = new Date(dob.value);
     let maxDate = new Date().setFullYear(new Date().getFullYear() - 120);
     let today = new Date();
-    
+
     if (date > today) {
         document.getElementById("dob-error").innerHTML = "Date can't be in the future";
         dob.value = "";
@@ -109,8 +105,7 @@ function validateDob()
     }
 }
 
-function validateSsn() 
-{
+function validateSsn() {
     const ssn = document.getElementById("ssn").value;
     const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
 
@@ -125,8 +120,7 @@ function validateSsn()
     }
 }
 
-function validateEmail() 
-{
+function validateEmail() {
     const emailInput = document.getElementById("email");
     const email = emailInput.value.trim();
     const emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -149,8 +143,7 @@ function validateEmail()
 }
 
 //Phone format code from https://learnersbucket.com/examples/javascript/how-to-format-phone-number-in-javascript/
-function formatPhone(input) 
-{
+function formatPhone(input) {
     let cleaned = input.value.replace(/\D/g, ''); 
     let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
 
@@ -161,8 +154,7 @@ function formatPhone(input)
     }
 }
 
-function validatePhone()
-{
+function validatePhone(){
     const phoneInput = document.getElementById("phone");
     const phoneError = document.getElementById("phone-error");
     const phone = phoneInput.value.trim()
@@ -180,6 +172,7 @@ function validatePhone()
 }
 
 function validateUid() {
+    
     uid = document.getElementById("uid").value.toLowerCase();
     document.getElementById("uid").value = uid;
 
@@ -218,7 +211,7 @@ function validatePword() {
     let pword = document.getElementById("password").value;
     let errorMessage = [];
     let errorElement = document.getElementById("pword-error");
-    let uid = "TestUser";
+    let uid = "TestUser"; // Replace with actual user ID
 
     if (!pword.match(/[a-z]/)) errorMessage.push("At least one lowercase letter");
     if (!pword.match(/[A-Z]/)) errorMessage.push("At least one uppercase letter");
@@ -228,16 +221,15 @@ function validatePword() {
     if (pword.length < 8) errorMessage.push("Must be at least 8 characters long");
 
     if (errorMessage.length > 0) {
-        errorElement.innerHTML = errorMessage.join("<br>");
+        errorElement.innerHTML = errorMessage.join("<br>"); // Display errors
     } else {
         errorElement.innerHTML = "";
     }
 }
 
-function confirmPword() 
-{
+function confirmPword() {
     pword1 = document.getElementById("password").value;
-    pword2 = document.getElementById("confirmedpassword").value;
+    pword2 = document.getElementById("confirmpassword").value;
 
     if (pword1 !== pword2) {
         document.getElementById("pword2-error").innerHTML = 
