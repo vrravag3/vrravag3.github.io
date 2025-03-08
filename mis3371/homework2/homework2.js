@@ -54,12 +54,12 @@ function reviewInput() {
     document.getElementById("showInput").innerHTML = formoutput;
 }
 
-function removeReview() 
+function closeReview() 
 {
     document.getElementById("showInput").innerHTML = "";
 }
 
-function validateFname() {
+function Fnamecheck() {
     let fnameInput = document.getElementById("fname");
     let errorSpan = document.getElementById("fname-error");
 
@@ -71,7 +71,7 @@ function validateFname() {
     }
 }
 
-function validateLname() {
+function Lnamecheck() {
     let lnameInput = document.getElementById("lname");
     let errorSpan = document.getElementById("lname-error");
 
@@ -85,7 +85,7 @@ function validateLname() {
     }
 }
 
-function validateDob() {
+function Dobcheck() {
     dob = document.getElementById("dob");
     let date = new Date(dob.value);
     let maxDate = new Date().setFullYear(new Date().getFullYear() - 120);
@@ -105,7 +105,7 @@ function validateDob() {
     }
 }
 
-function validateSsn() {
+function Snncheck() {
     const ssn = document.getElementById("ssn").value;
     const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
 
@@ -120,7 +120,7 @@ function validateSsn() {
     }
 }
 
-function validateEmail() {
+function Emailcheck() {
     const emailInput = document.getElementById("email");
     const email = emailInput.value.trim();
     const emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -154,7 +154,7 @@ function formatPhone(input) {
     }
 }
 
-function validatePhone(){
+function Phonecheck(){
     const phoneInput = document.getElementById("phone");
     const phoneError = document.getElementById("phone-error");
     const phone = phoneInput.value.trim()
@@ -171,7 +171,7 @@ function validatePhone(){
     }
 }
 
-function validateUid() {
+function Uidcheck() {
     
     uid = document.getElementById("uid").value.toLowerCase();
     document.getElementById("uid").value = uid;
@@ -191,7 +191,7 @@ function validateUid() {
     let regex = /^[a-zA-Z0-9_-]+$/;
     if (!regex.test(uid)) {
         document.getElementById("uid-error").innerHTML = 
-        "No spaces or Special Characters (Dashes and Underlines are okay)";
+        "No spaces or Special Characters (Dashes and Underlines allowed)";
         return false;
     } else if (uid.length < 5) {
         document.getElementById("uid-error").innerHTML = 
@@ -207,7 +207,7 @@ function validateUid() {
     }
 }
 
-function validatePword() {
+function Pwordcheck() {
     let pword = document.getElementById("password").value;
     let errorMessage = [];
     let errorElement = document.getElementById("pword-error");
