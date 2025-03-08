@@ -38,7 +38,7 @@ Purpose: A Clinic Patient form
                                 maxlength="30" 
                                 title="Letter, apostrophes, and dashes only"
                                 pattern="[a-zA-Z']{1,30}"
-                                oninput="validateFname()"
+                                oninput="Fnamecheck()"
                                 required
                             />
                             <span class="error" id="fname-error"></span>
@@ -54,7 +54,6 @@ Purpose: A Clinic Patient form
                                 id="mname" 
                                 title="Letters only"
                                 pattern="[a-zA-Z']{0,1}"
-                                oninput="validateMini()"
                                 maxlength="1" 
                                 style="width: 30px"
                             />
@@ -72,7 +71,7 @@ Purpose: A Clinic Patient form
                                 maxlength="30"
                                 title="Letters, apostrophes, numbers 2 to 5, ie, the 3rd, and dashes only"
                                 pattern="[a-zA-Z' -]*[2-5]{0,1}[a-zA-Z' -]*"
-                                oninput="validateLname()" 
+                                oninput="Lnamecheck()" 
                                 required
                             />
                             <span class="error" id="lname-error"></span>
@@ -89,7 +88,7 @@ Purpose: A Clinic Patient form
                                 name="Date of Birth:" 
                                 style="width: 171px" 
                                 required
-                                onblur="validateDob()"
+                                onblur="Dobcheck()"
                             />
                             <span class="error" id="dob-error"></span>
                         </td>
@@ -106,7 +105,7 @@ Purpose: A Clinic Patient form
                                 maxlength="11" 
                                 required
                                 title="Numbers only"
-                                oninput="validateSsn()"
+                                oninput="Snncheck()"
                             />
                             <span class="error" id="ssn-error"></span>
                         </td>
@@ -277,8 +276,8 @@ Purpose: A Clinic Patient form
                                 name="Email:" 
                                 required
                                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$"
-                                oninput="validateEmail()"
-                                onblur="validateEmail()"
+                                oninput="Emailcheck()"
+                                onblur="Emailcheck()"
                                 placeholder= "name@domain.tld"
                                 />
                             <span class="error" id="email-error"></span>
@@ -296,7 +295,7 @@ Purpose: A Clinic Patient form
                                 required
                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                 oninput="formatPhone(this)"
-                                onblur="validatePhone()"
+                                onblur="Phonecheck()"
                                 />
                             <span class="error" id="phone-error"></span>
                         </td>
@@ -309,8 +308,9 @@ Purpose: A Clinic Patient form
                             <input type="text" 
                                 id="uid" 
                                 name="UserID:" 
+                                title="Only letters, numbers (as long as the first character is NOT a number), and an underscore or dash"
                                 required
-                                onblur="validateUid()"
+                                onblur="Uidcheck()"
                             />
                             <span class="error" id="uid-error"></span>
                         </td>
@@ -324,9 +324,9 @@ Purpose: A Clinic Patient form
                                 id="password" 
                                 name="Password:" 
                                 required
-                                onblur="validatePword()"
-                                oninput="validatePword(); confirmPword()"
-                                onfocus="validatePword()"
+                                onblur="Pwordcheck()"
+                                oninput="Pwordcheck(); confirmPword()"
+                                onfocus="Pwordcheck()"
                                 />
                             <span class="error" id="pword-error"></span>
                         </td>
@@ -352,7 +352,7 @@ Purpose: A Clinic Patient form
                         </th>
                         <td>
                             <input type="button" name="Review" id="review" value="Review" onclick="reviewInput()">
-                            <input type="button" name="Close Review" id="clearreview" value="Close Review" onclick="removeReview()">
+                            <input type="button" name="Close Review" id="clearreview" value="Close Review" onclick="closeReview()">
                             <br><br>
                             <input type="submit" name="Submit" id="Submit" value="Submit">
                             <input type="reset" style="background-color: red">
