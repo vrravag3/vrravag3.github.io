@@ -1,5 +1,5 @@
 /* 
-Program name: homework2.js
+Program name: homework3.js
 Author: Vince Ravago
 Date Created: 2/24/2025
 Date Updated: 3/7/2025
