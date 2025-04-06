@@ -2,8 +2,8 @@
 Program name: homework3.js
 Author: Vince Ravago
 Date Created: 2/24/2025
-Date Updated: 3/7/2025
-Version: 1.0
+Date Updated: 4/11/2025
+Version: 3.0
 Purpose: Javascript for the patientform.html
 */
 const d = new Date();
@@ -59,19 +59,43 @@ function closeReview()
     document.getElementById("showInput").innerHTML = "";
 }
 
-function Fnamecheck() {
+function fnameCheck() {
     let fnameInput = document.getElementById("fname");
     let errorSpan = document.getElementById("fname-error");
 
     let pattern = /^[a-zA-Z' -]{1,30}$/;
     if (!pattern.test(fnameInput.value.trim())) {
         errorSpan.textContent = "Letters, apostrophes and dashes only";
+        return false;
     } else {
         errorSpan.textContent = "";
+        return true;
     }
 }
 
-function Lnamecheck() {
+function mnameCheck() {
+    let mini = document.getElementById("mname").value;
+    const namePattern = /^[A-Z]+$/;
+
+    if (mini === "") {
+        document.getElementById("mname-error").innerHTML = "";
+        return true;
+    }
+
+    mini = mini.toUpperCase();
+    document.getElementById("mname").value = mini;
+
+    if (!mini.match(namePattern)) {
+        document.getElementById("mname-error").innerHTML = 
+        "Middle initial must be a single uppercase letter";
+        return false;
+    } else {
+        document.getElementById("mname-error").innerHTML = "";
+        return true;
+    }
+}
+
+function lnameCheck() {
     let lnameInput = document.getElementById("lname");
     let errorSpan = document.getElementById("lname-error");
 
@@ -80,12 +104,14 @@ function Lnamecheck() {
     
     if (!pattern.test(trimmedValue) || trimmedValue.length < 1 || trimmedValue.length > 30) {
         errorSpan.textContent = "Letters, apostrophes, numbers 2 to 5, and dashes only";
+        return false;
     } else {
         errorSpan.textContent = "";
+        return true;
     }
 }
 
-function Dobcheck() {
+function dobCheck() {
     dob = document.getElementById("dob");
     let date = new Date(dob.value);
     let maxDate = new Date().setFullYear(new Date().getFullYear() - 120);
@@ -105,7 +131,7 @@ function Dobcheck() {
     }
 }
 
-function Snncheck() {
+function snnCheck() {
     const ssn = document.getElementById("ssn").value;
     const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
 
@@ -120,7 +146,34 @@ function Snncheck() {
     }
 }
 
-function Emailcheck() {
+function cityCheck() {
+    city = document.getElementById("city").value.trim();
+
+    if (!city) {
+        document.getElementById("city-error").innerHTML = "City can't be blank";
+        return false;
+    } else {
+        document.getElementById("city-error").innerHTML = "";
+        return true;
+    }
+}
+
+function zipCheck() {
+    const zipInput = document.getElementById("zip");
+    let zip = zipInput.value.replace(/[^\d-]/g, "");
+
+    if (!zip) {
+        document.getElementById("zip-error").innerHTML = 
+        "Zip code can't be blank";
+        return false;
+    }
+
+    zipInput.value = zip;
+    document.getElementById("zip-error").innerHTML = "";
+    return true;
+}
+
+function emailCheck() {
     const emailInput = document.getElementById("email");
     const email = emailInput.value.trim();
     const emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -154,7 +207,7 @@ function formatPhone(input) {
     }
 }
 
-function Phonecheck(){
+function phoneCheck(){
     const phoneInput = document.getElementById("phone");
     const phoneError = document.getElementById("phone-error");
     const phone = phoneInput.value.trim()
@@ -171,7 +224,7 @@ function Phonecheck(){
     }
 }
 
-function Uidcheck() {
+function uidCheck() {
     
     uid = document.getElementById("uid").value.toLowerCase();
     document.getElementById("uid").value = uid;
@@ -207,7 +260,7 @@ function Uidcheck() {
     }
 }
 
-function Pwordcheck() {
+function pwordCheck() {
     let pword = document.getElementById("password").value;
     let errorMessage = [];
     let errorElement = document.getElementById("pword-error");
@@ -222,8 +275,10 @@ function Pwordcheck() {
 
     if (errorMessage.length > 0) {
         errorElement.innerHTML = errorMessage.join("<br>"); // Display errors
+        return false;
     } else {
         errorElement.innerHTML = "";
+        return true;
     }
 }
 
@@ -240,4 +295,37 @@ function confirmPword() {
         "Passwords match";
         return true;
     }
+}
+
+function finalCheck() {
+    let valid = true;
+
+    if (!fnameCheck()) valid = false;
+    if (!mnameCheck()) valid = false;
+    if (!lnameCheck()) valid = false;
+    if (!dobCheck()) valid = false;
+    if (!snnCheck()) valid = false;
+    if (!cityCheck()) valid = false;
+    if (!zipCheck()) valid = false;
+    if (!emailCheck()) valid = false;
+    if (!phoneCheck()) valid = false;
+    if (!uidCheck()) valid = false;
+    if (!pwordCheck()) valid = false;
+    if (!confirmPword()) valid = false;
+    
+    if (valid) {
+        document.getElementById("submit").disabled = false;
+        showGoodAlert()
+    } else {
+        document.getElementById("submit").disabled = true;
+        showAlert();
+    }
+}
+
+function showAlert() {
+    alert("Please correct the errors before submitting.");
+}
+
+function showGoodAlert() {
+    alert("Information is Correct and Ready to be Submitted.");
 }
