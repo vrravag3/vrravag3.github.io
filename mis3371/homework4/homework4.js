@@ -406,7 +406,8 @@ inputs.forEach(function (input) {
 });
 
 var firstName = getCookie("firstname");
-if (firstName !== " ") {
+
+if (firstName && firstName.trim() !== "") {
     document.getElementById("welcome1").innerHTML = "Welcome back, " + firstName + "!<br>";
     document.getElementById("welcome2").innerHTML =
         "<a href='#' id='new-user'>Not " + firstName + "? Click here to start a new form.</a>";
