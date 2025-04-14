@@ -2,7 +2,7 @@
  Name: Vinceravago
  File: style.css
  Date Created: 2/2/2025
- Date Updated: 4/11/2025
+ Date Updated: 4/28/2025
  Purpose: Style sheet for MIS 3371 HW1
  */
  /* Top border area of form*/
@@ -76,4 +76,14 @@ footer
 
 #pword-error {
     display: block;
+}
+
+.iframe-container {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 225px;
+    z-index: 1000;
 }
