@@ -414,9 +414,12 @@ if (firstName !== " ") {
     document.getElementById("new-user").addEventListener("click", function () {
         inputs.forEach(function (input) {
             setCookie(input.cookieName, "", -1);
-        })
+        });
         location.reload();
-    })
+    });
+} else {
+    document.getElementById("welcome1").innerHTML = "Welcome new user!<br>";
+    document.getElementById("welcome2").innerHTML = "";
 }
 
 document.getElementById("remember-me").addEventListener("change", function () {
