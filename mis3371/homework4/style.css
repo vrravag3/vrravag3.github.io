@@ -6,7 +6,7 @@
  Purpose: Style sheet for MIS 3371 HW1
  */
  /* Top border area of form*/
- body 
+body 
  {
      font-family: Courier New, monospace;
      background-color: #ADD8E6;
@@ -14,19 +14,22 @@
 
 header 
  {
+     position: sticky;
+     top: 0;
      background-color: #80D0F4;
      text-align: center;
      font-family: Times New Roman, Serif;
      border: 1px solid;
      padding: 10px;
+     z-index: 1000;
  }
 
 .logo 
  {
      position: absolute;
      left: 20px;
-     top: 10px;
-     width: 95px;
+     top: 5px;
+     width: 90px;
  }
 
 .date-banner
