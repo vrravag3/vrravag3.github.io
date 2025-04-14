@@ -144,9 +144,8 @@ Purpose: A Clinic Patient form
                         </td>
                     </tr>
                     <tr>
-                        <!-- City, State, Zip are all on one line-->
                         <th>
-                            City, State, Zip:
+                            City:
                         </th>
                         <td>
                             <div>
@@ -160,7 +159,14 @@ Purpose: A Clinic Patient form
                                     required
                                 >
                                 <span class="error" id="city-error"></span>
-
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            State:
+                        </th>
+                        <td>
                                 <!-- Code from https://www.freeformatter.com/usa-state-list-html-select.html -->
                                 <select required name= "State:" id= "state" style="width: 110px">
                                     <option value="">State</option>
@@ -217,7 +223,14 @@ Purpose: A Clinic Patient form
                                     <option value="WI">Wisconsin</option>
                                     <option value="WY">Wyoming</option>
                                 </select>
-
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Zip:
+                        </th>
+                        <td>
+                            <div>
                                 <input type="text" 
                                     name="Zip:" 
                                     id="zip" 
