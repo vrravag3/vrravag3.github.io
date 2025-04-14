@@ -2,8 +2,8 @@
 Program name: homework4.js
 Author: Vince Ravago
 Date Created: 2/24/2025
-Date Updated: 4/11/2025
-Version: 3.0
+Date Updated: 4/28/2025
+Version: 4.0
 Purpose: Javascript for the patientform.html
 */
 const d = new Date();
@@ -18,6 +18,7 @@ output.innerHTML = slider.value;
 slider.oninput = function () {
     output.innerHTML = this.value;
 };
+
 
 function reviewInput() {
     var formcontent = document.getElementById("psignup");
@@ -300,18 +301,42 @@ function confirmPword() {
 function finalCheck() {
     let valid = true;
 
-    if (!fnameCheck()) valid = false;
-    if (!mnameCheck()) valid = false;
-    if (!lnameCheck()) valid = false;
-    if (!dobCheck()) valid = false;
-    if (!snnCheck()) valid = false;
-    if (!cityCheck()) valid = false;
-    if (!zipCheck()) valid = false;
-    if (!emailCheck()) valid = false;
-    if (!phoneCheck()) valid = false;
-    if (!uidCheck()) valid = false;
-    if (!pwordCheck()) valid = false;
-    if (!confirmPword()) valid = false;
+    if (!fnameCheck()) {
+        valid = false;
+    }
+    if (!mnameCheck()) {
+        valid = false;
+    }
+    if (!lnameCheck()) {
+        valid = false;
+    }
+    if (!dobCheck()) {
+        valid = false;
+    }
+    if (!snnCheck()) {
+        valid = false;
+    }
+    if (!cityCheck()) {
+        valid = false;
+    }
+    if (!zipCheck()) {
+        valid = false;
+    }
+    if (!emailCheck()) {
+        valid = false;
+    }
+    if (!phoneCheck()) {
+        valid = false;
+    }
+    if (!uidCheck()) {
+        valid = false;
+    }
+    if (!pwordCheck()) {
+        valid = false;
+    }
+    if (!confirmPword()) {
+        valid = false;
+    }
     
     if (valid) {
         document.getElementById("submit").disabled = false;
@@ -321,6 +346,113 @@ function finalCheck() {
         showAlert();
     }
 }
+
+function showAlert() {
+    alert("Please correct the errors before submitting.");
+}
+
+function showGoodAlert() {
+    alert("Information is Correct and Ready to be Submitted.");
+}
+
+function setCookie(name, cvalue, expiryDays) {
+    var day = new Date();
+    day.setTime(day.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + day.toUTCString();
+    document.cookie = name + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie (name) {
+    var cookieName = name + "=";
+    var cookies = document.cookie.split(';');
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        while (cookie.charAt (0) == ' ') {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(cookieName) == 0) {
+            return cookie.substring(cookieName.length, cookie.length);
+        }
+    }
+    return "";
+}
+
+var inputs = [
+    {id:"fname", cookieName: "firstname"},
+    {id:"mname", cookieName: "middleinitial"},
+    {id:"lname", cookieName: "lastname"},
+    {id:"dob", cookieName: "dob"},
+    {id:"ssn", cookieName: "ssn"},
+    {id:"addr1", cookieName: "address1"},
+    {id:"city", cookieName: "city"},
+    {id:"zip", cookieName: "zipcode" },
+    {id:"uid", cookieName: "userId" },
+]
+
+inputs.forEach(function (input) {
+    var inputElement = document.getElementById(input.id);
+
+    // Prefill input fields
+    var cookieValue = getCookie(input.cookieName);
+    if (cookieValue !== "") {
+        inputElement.value = cookieValue;
+    }
+
+    // Set a cookie when the input field changes
+    inputElement.addEventListener("input", function () {
+        setCookie(input.cookieName, inputElement.value, 30);
+    });
+});
+
+var firstName = getCookie("firstname");
+if (firstName !== " ") {
+    document.getElementById("welcome1").innerHTML = "Welcome back, " + firstName + "!<br>";
+    document.getElementById("welcome2").innerHTML =
+        "<a href='#' id='new-user'>Not " + firstName + "? Click here to start a new form.</a>";
+
+    document.getElementById("new-user").addEventListener("click", function () {
+        inputs.forEach(function (input) {
+            setCookie(input.cookieName, "", -1);
+        })
+        location.reload();
+    })
+}
+
+document.getElementById("remember-me").addEventListener("change", function () {
+    const rememberMe = this.checked;
+
+    if (!rememberMe) {
+        // If "Remember Me" is unchecked, delete cookies
+        deleteAllCookies();
+        console.log("All cookies deleted because 'Remember Me' is unchecked.");
+    } else {
+        // If "Remember Me" is checked or rechecked, save cookies
+        inputs.forEach(function (input) {
+            const inputElement = document.getElementById(input.id);
+            if (inputElement.value.trim() !== "") {
+                setCookie(input.cookieName, inputElement.value, 30);
+            }
+        });
+        console.log("Cookies saved because 'Remember Me' is checked.");
+    }
+});
+
+function deleteAllCookies() {
+    document.cookie.split(";").forEach(function (cookie) {
+        let eqPos = cookie.indexOf("=");
+        let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const rememberMe = document.getElementById("remember-me").checked;
+
+    if (!rememberMe) {
+        deleteAllCookies();
+    }
+});
 
 function showAlert() {
     alert("Please correct the errors before submitting.");
