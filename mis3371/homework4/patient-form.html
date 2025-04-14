@@ -2,8 +2,8 @@
 Program name: patient-form.html
 Author: Vince Ravago
 Date Created: 2/2/2025
-Date Updated: 4/11/2025
-Version: 3.0
+Date Updated: 4/28/2025
+Version: 4.0
 Purpose: A Clinic Patient form 
 -->
 <!DOCTYPE html>
@@ -22,7 +22,17 @@ Purpose: A Clinic Patient form
             <h1>SugarLand Healthcare Clinic</h1>
             <p class="date-banner">Today's date: <span id="current-date"></span></p>
         </header>
+        
+        <center>
+            <span id="welcome1"></span>
+            <span id="welcome2"></span>
+        </center>
 
+        <div class="iframe-container">
+            <iframe class="frame" src="https://www.sugarlandmethodist.org/giveblood" frameborder="0"></iframe>
+        </div>
+
+        <!--action="thankyou.html"-->
         <form id="psignup" name="psignup" action="thankyou.html"><center>
             <table>
                 <caption><b>Enter your Information Below</b><br></caption>
@@ -238,20 +248,20 @@ Purpose: A Clinic Patient form
                         </th>
                         <td>
                             <label for="diabetes">
-                                <input type="checkbox" id="diabetes" name="Diabetes:" value="Diabetes"> Diabetes
-                            </label>
+                                <input type="checkbox" id="diabetes" name="Diabetes:" value="Diabetes">Diabetes
+                            </label><br>
                             <label for="hypertension">
                                 <input type="checkbox" id="hypertension" name="Hypertension:" value="Hypertension">Hypertension
-                            </label>
+                            </label><br>
                             <label for="asthma">
                                 <input type="checkbox" id="asthma" name="Asthma:" value="Asthma">Asthma
-                            </label>
+                            </label><br>
                             <label for="heartDisease">
                                 <input type="checkbox" id="heartDisease" name="Heart Disease:" value="Heart Disease">Heart Disease
-                            </label>
+                            </label><br>
                             <label for="cancer">
                                 <input type="checkbox" id="cancer" name="Cancer:" value="cancer">Cancer
-                            </label>
+                            </label><br>
                         </td>
                     </tr>
                     <tr>
@@ -376,6 +386,20 @@ Purpose: A Clinic Patient form
                                 onfocus="confirmPword()"
                             />
                             <span class="error" id="pword2-error"></span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            Remember Me:
+                        </th>
+                        <td>
+                            <input
+                                type="checkbox"
+                                id="remember-me"
+                                name="remember-me"
+                                checked
+                            />
                         </td>
                     </tr>
                     <tr>
