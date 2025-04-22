@@ -1,0 +1,447 @@
+<!--
+Program name: patient-form.html
+Author: Vince Ravago
+Date Created: 2/2/2025
+Date Updated: 4/28/2025
+Version: 4.0
+Purpose: A Clinic Patient form 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SugarLand Healthcare Clinic - Patient Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+
+        <!--Logo on the left Title in the middle and Date on the Right-->
+        <header>
+            <img src="logo.jpg" alt="Clinic Logo" class="logo">
+            <h1>SugarLand Healthcare Clinic</h1>
+            <p class="date-banner">Today's date: <span id="current-date"></span></p>
+        </header>
+        
+        <center>
+            <span id="welcome1"></span>
+            <span id="welcome2"></span>
+        </center>
+
+        <div class="iframe-container">
+            <iframe class="frame" src="https://www.wunderground.com/weather/us/tx/sugar-land/77479" frameborder="0"></iframe>
+        </div>
+
+        <!--action="thankyou.html"-->
+        <form id="psignup" name="psignup" action="thankyou.html"><center>
+            <table>
+                <caption><b>Enter your Information Below</b><br></caption>
+                    <tr>
+                        <!--The first middle and last name are next to each other-->
+                        <th>
+                            First Name:
+                        </th>
+                        <td>
+                            <input type="text" 
+                                name="First Name:" 
+                                id="fname" 
+                                maxlength="30" 
+                                title="Letter, apostrophes, and dashes only"
+                                pattern="[a-zA-Z']{1,30}"
+                                oninput="fnameCheck()"
+                                required
+                            />
+                            <span class="error" id="fname-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Middle Initial:
+                        </th>
+                        <td>
+                            <input type="text" 
+                                name="Middle Initial:" 
+                                id="mname" 
+                                title="Letters only"
+                                pattern="[a-zA-Z']{0,1}"
+                                maxlength="1" 
+                                style="width: 30px"
+                                oninput="mnameCheck()"
+                            />
+                            <span class="error" id="mname-error"></span>
+                         </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Last Name:  
+                        </th>
+                        <td> 
+                            <input type="text" 
+                                name="Last Name:" 
+                                id="lname" 
+                                maxlength="30"
+                                title="Letters, apostrophes, numbers 2 to 5, ie, the 3rd, and dashes only"
+                                pattern="[a-zA-Z' -]*[2-5]{0,1}[a-zA-Z' -]*"
+                                oninput="lnameCheck()" 
+                                required
+                            />
+                            <span class="error" id="lname-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!--Use date code from w3 schools-->
+                        <th>
+                            Date of Birth:
+                        </th>
+                        <td>
+                            <input type="date" 
+                                id="dob" 
+                                name="Date of Birth:" 
+                                style="width: 165px" 
+                                required
+                                onblur="dobCheck()"
+                            />
+                            <span class="error" id="dob-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Social Security Number:
+                        </th>
+                        <td>
+                            <input type="password" 
+                                id="ssn" 
+                                name="SSN:" 
+                                minlength="9" 
+                                maxlength="11" 
+                                required
+                                title="Numbers only"
+                                oninput="snnCheck()"
+                            />
+                            <span class="error" id="ssn-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Address Line 1:
+                        </th>
+                        <td>
+                            <input type="text" 
+                                name="AddressLine1:" 
+                                id="addr1" 
+                                minlength="2" 
+                                maxlength="30" 
+                                required
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Address Line 2:
+                        </th>
+                        <td>
+                            <input type="text" name="AddressLine2:" id="addr2" minlength="2" maxlength="30">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            City:
+                        </th>
+                        <td>
+                            <div>
+                                <input type="text" 
+                                    name="City:" 
+                                    id="city" 
+                                    placeholder="City" 
+                                    maxlength="30" 
+                                    style="width: 110px" 
+                                    oninput="cityCheck()"
+                                    required
+                                >
+                                <span class="error" id="city-error"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            State:
+                        </th>
+                        <td>
+                                <!-- Code from https://www.freeformatter.com/usa-state-list-html-select.html -->
+                                <select required name= "State:" id= "state" style="width: 117px">
+                                    <option value="">State</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District Of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="PR">Puerto Rico</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Zip:
+                        </th>
+                        <td>
+                            <div>
+                                <input type="text" 
+                                    name="Zip:" 
+                                    id="zip" 
+                                    placeholder="Zip" 
+                                    style="width: 110px" 
+                                    minlength="5" 
+                                    maxlength="5" 
+                                    onblur="zipCheck()"
+                                    required
+                                >
+                                <span class="error" id="zip-error"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="gender">Gender:</label></td>
+                        </th>
+                        <td>       
+                            <input type="radio" id="g1" name="Gender:" value="male" required> Male                                                      
+                            <input type="radio" id="g2" name="Gender:" value="female" required> Female       
+                            <input type="radio" id="g3" name="Gender:" value="other" required> Other 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Medical History:
+                        </th>
+                        <td>
+                            <label for="diabetes">
+                                <input type="checkbox" id="diabetes" name="Diabetes:" value="Diabetes">Diabetes
+                            </label>
+                            <label for="hypertension">
+                                <input type="checkbox" id="hypertension" name="Hypertension:" value="Hypertension">Hypertension
+                            </label>
+                            <label for="asthma">
+                                <input type="checkbox" id="asthma" name="Asthma:" value="Asthma">Asthma
+                            </label>
+                            <label for="heartDisease">
+                                <input type="checkbox" id="heartDisease" name="Heart Disease:" value="Heart Disease">Heart Disease
+                            </label>
+                            <label for="cancer">
+                                <input type="checkbox" id="cancer" name="Cancer:" value="cancer">Cancer
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Additional Health Concerns:
+                        </th>
+                        <td>
+                            <textarea id="addcon" name="Additional Concerns:" rows="3" cols="50"></textarea> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Have you taken the flu shot?
+                        </th>
+                        <td>
+                            <label for="Yes">
+                                <input type="radio" id="fluyes" name="Flushot:" value="yes" required> Yes
+                            </label>
+                            <label for="No">
+                                <input type="radio" id="fluno" name="Flushot:" value="no" required> No
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Are you currently on medication?
+                        </th>
+                        <td>
+                            <label for="Yes">
+                                <input type="radio" id="medyes" name="Medications:" value="yes" required> Yes
+                            </label>
+                            <label for="no">
+                                <input type="radio" id="medno" name="Medications:" value="no" required> No
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Rate your Current Pain if Any (0-10):
+                        </th>
+                        <td>
+                            0 <input type="range" id="range" name="Pain Level:" min="0" max="10"> 10
+                            (<span id="range-slider"></span>)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Email:
+                        </th>
+                        <td>
+                            <input type="email" 
+                                id="email" 
+                                name="Email:" 
+                                required
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$"
+                                oninput="emailCheck()"
+                                onblur="emailCheck()"
+                                placeholder= "name@domain.tld"
+                                />
+                            <span class="error" id="email-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Phone Number:
+                        </th>
+                        <td>
+                            <input type="text" 
+                                id="phone" 
+                                name="Phone Number:"
+                                maxlength="10"
+                                required
+                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                oninput="formatPhone(this)"
+                                onblur="phoneCheck()"
+                                />
+                            <span class="error" id="phone-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Create User ID:
+                        </th>
+                        <td>
+                            <input type="text" 
+                                id="uid" 
+                                name="UserID:" 
+                                title="Only letters, numbers (as long as the first character is NOT a number), and an underscore or dash"
+                                required
+                                onblur="uidCheck()"
+                            />
+                            <span class="error" id="uid-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Create Password:
+                        </th>
+                        <td>
+                            <input type="password" 
+                                id="password" 
+                                name="Password:" 
+                                required
+                                onblur="pwordCheck()"
+                                oninput="pwordCheck(); confirmPword()"
+                                onfocus="pwordCheck()"
+                                />
+                            <span class="error" id="pword-error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Confirm Password:
+                        </th>
+                        <td>
+                            <input type="password" 
+                                id="confirmpassword" 
+                                name="ConfirmedPassword:" 
+                                required
+                                onblur="confirmPword()"
+                                oninput="confirmPword()"
+                                onfocus="confirmPword()"
+                            />
+                            <span class="error" id="pword2-error"></span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            Remember Me:
+                        </th>
+                        <td>
+                            <input
+                                type="checkbox"
+                                id="remember-me"
+                                name="remember-me"
+                                checked
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                        </th>
+                        <td>
+                            <input type="button" name="Review" id="review" value="Review" onclick="reviewInput()">
+                            <input type="button" name="Close Review" id="clearreview" value="Close Review" onclick="closeReview()">
+                            <input type="button" name="validate" id="validate" value="Validate" onclick="finalCheck()">
+                            <br><br>
+                            <input type="submit" name="Submit" id="submit" value="Submit" disabled>
+                            <input type="reset" style="background-color: red">
+                        </td>
+                    </tr>
+            </table>
+        </form>
+
+        <p id="showInput"></p>
+
+        <footer>
+            <p>SugarLand Healthcare Clinic.</p>
+            <p>14365 Sugarcane Lane, 77498 </p>
+            <button 
+                type="button" onclick="alert('Email: contact@sugarlandshealth.com \nPhone#: (281) 555-7890')">Contact Us
+            </button>
+        </footer>
+
+        <!-- Load external JavaScript -->
+        <script src="homework4.js"> </script>
+
+    </body>
+</html>
