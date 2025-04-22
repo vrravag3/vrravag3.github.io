@@ -1,5 +1,5 @@
 /* 
-Program name: homework4ExtraCred.js
+Program name: homeworkExtraCred.js
 Author: Vince Ravago
 Date Created: 2/24/2025
 Date Updated: 4/28/2025
