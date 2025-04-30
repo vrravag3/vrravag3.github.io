@@ -2,8 +2,8 @@
 Program name: thankyou.html
 Author: Vince Ravago
 Date Created: 2/5/2025
-Date Updated: 4/28/2025
-Version: 1.0
+Date Updated: 5/4/2025
+Version: 5.0
 Purpose: Page that shows up when submitting the patient form
 -->
 
@@ -13,24 +13,29 @@ Purpose: Page that shows up when submitting the patient form
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SugarLand Healthcare Clinic - Patient Registration</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleExtraCred.css">
 </head>
-    <body>
-        <header>
-            <img src="logo.jpg" alt="Clinic Logo" class="logo">
-            <h1>Houston Healthcare Clinic</h1>
-            <p class="date-banner">Today's date: <span id="current-date"></span></p>
-        </header>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Clinic Logo" class="logo">
+        <h1>Houston Healthcare Clinic</h1>
+        <p class="date-banner">Today's date: <span id="current-date"></span></p>
+    </header>
 
-        <Center>
-        <h1>Thank you for submitting the form! </h1>
-        <form action="patient-form.html">
-            <input type="submit" value="Go back">
-        <form>
-        </Center>
+    <center>
+        <h1>Thank you for submitting the form!</h1>
+        <p>Form submitted on: <span id="submission-time"></span></p>
+    
+        <a href="patient-formExtraCred.html">
+          <button type="button">Start New Form</button>
+        </a>
+    </center>
 
-        <script>
-            document.getElementById("current-date").textContent = new Date().toLocaleDateString();
-        </script>
-    </body>
+    <script>
+        const now = new Date();
+        document.getElementById("current-date").textContent = now.toLocaleDateString();
+        document.getElementById("submission-time").textContent = now.toLocaleString();
+    </script>
+
+</body>
 </html>
