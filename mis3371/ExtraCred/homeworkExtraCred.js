@@ -2,7 +2,7 @@
 Program name: homeworkExtraCred.js
 Author: Vince Ravago
 Date Created: 2/24/2025
-Date Updated: 4/28/2025
+Date Updated: 5/4/2025
 Version: 5.0
 Purpose: Javascript for the patientform.html
 */
@@ -23,41 +23,51 @@ slider.oninput = function () {
 function reviewInput() {
     var formcontent = document.getElementById("psignup");
     var formoutput = "<table class='output'><caption>Review Your Information</caption>";
-    for (let i = 0; i < formcontent.length; i++) 
-    {
-        let fieldType = formcontent.elements[i].type;
-        if (fieldType === "submit" || fieldType === "reset" || fieldType === "button") 
-        {
-            continue;
-        }
-        if (formcontent.elements[i].value !== "") 
-        {
-            switch (formcontent.elements[i].type) 
-            {
-                case "checkbox":
-                    if (formcontent.elements[i].checked) 
-                    {
-                        formoutput += `<tr><td align='right'>${formcontent.elements[i].name}</td><td>&#x2713;</td></tr>`;
-                    }
-                    break;
-                case "radio":
-                    if (formcontent.elements[i].checked) 
-                    {
-                        formoutput += `<tr><td align='right'>${formcontent.elements[i].name}</td><td>${formcontent.elements[i].value}</td></tr>`;
-                    }
-                    break;
-                default:
-                    formoutput += `<tr><td align='right'>${formcontent.elements[i].name}</td><td>${formcontent.elements[i].value}</td></tr>`;
-            }
+
+    for (let i = 0; i < formcontent.length; i++) {
+        let field = formcontent.elements[i];
+        let type = field.type;
+        let name = field.name.toLowerCase();
+
+        if (["submit", "reset", "button"].includes(type)) continue;
+        if (["password", "textarea"].includes(type)) continue;
+        if (name.includes("password") || name.includes("ssn") || name.includes("social")) continue;
+        if (type !== "checkbox" && type !== "radio" && field.value.trim() === "") continue;
+
+        if (type === "checkbox" && field.checked) {
+            formoutput += `<tr><td>${field.name}</td><td>&#x2713;</td></tr>`;
+        } else if (type === "radio" && field.checked) {
+            formoutput += `<tr><td>${field.name}</td><td>${field.value}</td></tr>`;
+        } else if (type !== "checkbox" && type !== "radio") {
+            formoutput += `<tr><td>${field.name}</td><td>${field.value}</td></tr>`;
         }
     }
+
     formoutput += "</table>";
-    document.getElementById("showInput").innerHTML = formoutput;
+    document.getElementById("modalFormOutput").innerHTML = formoutput;
+
+    // Show the modal
+    document.getElementById("reviewModal").style.display = "block";
+
+    // Enable the submit button after reviewing input
+    var submitButton = document.getElementById("submit");
+    submitButton.disabled = false;  // Enable submit button after review
+    console.log("Submit button enabled:", !submitButton.disabled);
+
+    // Set up Go Back button to hide the modal
+    document.getElementById("goBackBtn").onclick = function () {
+        closeReview();
+    };
+
+    // Handle form submission inside the modal
+    submitButton.onclick = function () {
+        formcontent.submit();  // Submit the form when button is clicked
+    };
 }
 
-function closeReview() 
-{
+function closeReview() {
     document.getElementById("showInput").innerHTML = "";
+    document.getElementById("reviewModal").style.display = "none";
 }
 
 function fnameCheck() {
@@ -393,13 +403,11 @@ var inputs = [
 inputs.forEach(function (input) {
     var inputElement = document.getElementById(input.id);
 
-    // Prefill input fields
     var cookieValue = getCookie(input.cookieName);
     if (cookieValue !== "") {
         inputElement.value = cookieValue;
     }
 
-    // Set a cookie when the input field changes
     inputElement.addEventListener("input", function () {
         setCookie(input.cookieName, inputElement.value, 30);
     });
@@ -427,11 +435,9 @@ document.getElementById("remember-me").addEventListener("change", function () {
     const rememberMe = this.checked;
 
     if (!rememberMe) {
-        // If "Remember Me" is unchecked, delete cookies
         deleteAllCookies();
         console.log("All cookies deleted because 'Remember Me' is unchecked.");
     } else {
-        // If "Remember Me" is checked or rechecked, save cookies
         inputs.forEach(function (input) {
             const inputElement = document.getElementById(input.id);
             if (inputElement.value.trim() !== "") {
@@ -465,3 +471,138 @@ function showAlert() {
 function showGoodAlert() {
     alert("Information is Correct and Ready to be Submitted.");
 }
+
+function fillFromStorage() {
+    const form = document.forms["psignup"];
+    if (!form) return;
+  
+    for (let i = 0; i < form.elements.length; i++) {
+      const input = form.elements[i];
+      const key = input.id || input.name;
+  
+      if (!key) continue;
+  
+      const storedValue = localStorage.getItem(key);
+      if (storedValue !== null) {
+        if (input.type === "checkbox" || input.type === "radio") {
+          input.checked = storedValue === "true" || input.value === storedValue;
+        } else {
+          input.value = storedValue;
+        }
+      }
+    }
+  
+    const slider = document.getElementById("range");
+    const display = document.getElementById("range-slider");
+    if (slider && display) {
+      display.textContent = slider.value;
+    }
+  }
+
+window.addEventListener("DOMContentLoaded", () => {
+  const form = document.forms["psignup"];
+  if (!form) return;
+
+  for (let i = 0; i < form.elements.length; i++) {
+    const input = form.elements[i];
+    const key = input.id || input.name;
+
+    if (!key) continue;
+
+    input.addEventListener("change", () => {
+      if (input.type === "checkbox" || input.type === "radio") {
+        localStorage.setItem(key, input.checked ? input.value || "true" : "false");
+      } else {
+        localStorage.setItem(key, input.value);
+      }
+    });
+
+    if (input.type === "range" && input.id === "range") {
+      input.addEventListener("input", () => {
+        document.getElementById("range-slider").textContent = input.value;
+      });
+    }
+  }
+});
+
+function updateClock() {
+    const clock = document.getElementById('clock');
+    const now = new Date();
+    
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    let period = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+
+    clock.innerHTML = `${hours}:${minutes}:${seconds} ${period}`;
+}
+
+updateClock();
+
+setInterval(updateClock, 1000);
+
+function updateProgressBar() {
+    const form = document.getElementById("psignup");
+    const requiredFields = form.querySelectorAll("[required]");
+    let filledCount = 0;
+
+    requiredFields.forEach(field => {
+        if (field.type === "radio") {
+            const group = form.querySelectorAll(`input[name='${field.name}']`);
+            if ([...group].some(radio => radio.checked)) filledCount++;
+        } else if (field.type === "checkbox") {
+            if (field.checked) filledCount++;
+        } else if (field.value.trim() !== "") {
+            filledCount++;
+        }
+    });
+
+    const percent = Math.round((filledCount / requiredFields.length) * 100);
+    const bar = document.getElementById("progress-bar");
+    bar.style.width = percent + "%";
+    bar.textContent = percent + "%";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("psignup");
+    const inputs = form.querySelectorAll("input, select, textarea");
+    inputs.forEach(input => {
+        input.addEventListener("input", updateProgressBar);
+        input.addEventListener("change", updateProgressBar);
+    });
+    updateProgressBar();
+});
+
+document.getElementById("psignup").addEventListener("reset", function () {
+    const progressBar = document.getElementById("progress-bar");
+    progressBar.style.width = "0%";
+    progressBar.textContent = "0%";
+});
+
+function confirmSubmit() {
+    return confirm("Are you sure you want to submit the form?");
+}
+
+function confirmReset(event) {
+    event.preventDefault();
+    const confirmAction = confirm("Are you sure you want to reset the form?");
+    if (confirmAction) {
+        document.getElementById("psignup").reset();
+    }
+}
+
+window.onload = function() {
+    const formElements = document.querySelectorAll('input, select, textarea');
+
+    formElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add('show');
+        }, index * 50); 
+    });
+};
